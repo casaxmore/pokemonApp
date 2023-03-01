@@ -1,4 +1,4 @@
-<div class="fondo">
+<div class="text-light bg-dark ">
   <h3 class="mt-5">
     Listado de Pokémon
     <h6>by casaXmore</h6>
@@ -12,17 +12,17 @@
     #txtSearch
     (keyup)="onSearchPokemon(txtSearch.value)"
   />
-  <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+  <button class="btn btn-success" (click)="prevPage()">Anteriores</button>
   &nbsp;
   <button
-    class="btn btn-primary"
+    class="btn btn-success"
     (click)="nextPage()"
     [disabled]="(pokemons | filtro : page : search).length === 0"
   >
     Siguientes
   </button>
 
-  <table class="table">
+  <table class="table text-light">
     <thead>
       <tr>
         <th [ngStyle]="{ width: '100px' }">#</th>
@@ -42,6 +42,7 @@
             [src]="pokemon.pic"
             [alt]="pokemon.name"
             [ngStyle]="{ width: '75px' }"
+            (click)="selectPokemon(pokemon.name)"
           />
         </td>
       </tr>
