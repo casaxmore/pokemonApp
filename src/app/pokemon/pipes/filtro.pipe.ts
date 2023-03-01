@@ -6,9 +6,15 @@ import { Pokemon } from '../interfaces/pokemon.interfaces';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(pokemons: Pokemon[], page: number = 0): Pokemon[] {
+  transform(pokemons: Pokemon[], page: number = 0, search:string = ''): Pokemon[] {
 
-    return pokemons.slice(page, page + 5);
+    if(search.length === 0){
+      return pokemons.slice(page, page + 5);
+    }
+
+    const filteredPokemons = pokemons.filter( poke => poke.name.includes(search));
+    return filteredPokemons.slice(page, page + 5);
+
   }
 
 }

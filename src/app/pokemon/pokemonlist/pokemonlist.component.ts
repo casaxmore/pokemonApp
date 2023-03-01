@@ -11,6 +11,7 @@ export class PokemonlistComponent implements OnInit{
 
   public pokemons: Pokemon[] = [];
   public page: number = 0;
+  public search: string = '';
 
   constructor(private pokemonService: PokemonService){}
 
@@ -29,6 +30,11 @@ export class PokemonlistComponent implements OnInit{
     if( this.page > 0){
       this.page -= 5
     }
+  }
+
+  onSearchPokemon(search: string) {
+    this.page = 0;
+    this.search = search;
   }
 
 }
