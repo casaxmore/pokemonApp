@@ -1,36 +1,50 @@
-<h1 class="mt-5">Listado de Pokémon</h1>
-<hr>
+<div class="fondo">
+  <h3 class="mt-5">
+    Listado de Pokémon
+    <h6>by casaXmore</h6>
+  </h3>
+  <hr />
 
-<input type="text" class="form-control mb-2" placeholder="Buscar Pokémon" #txtSearch (keyup)="onSearchPokemon(txtSearch.value)">
-<button class="btn btn-primary" (click)="prevPage()">
-  Anteriores
-</button>
-&nbsp;
-<button class="btn btn-primary" (click)="nextPage()" [disabled]="(pokemons | filtro:page:search).length === 0">
-  Siguientes
-</button>
+  <input
+    type="text"
+    class="form-control mb-2"
+    placeholder="Buscar Pokémon"
+    #txtSearch
+    (keyup)="onSearchPokemon(txtSearch.value)"
+  />
+  <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+  &nbsp;
+  <button
+    class="btn btn-primary"
+    (click)="nextPage()"
+    [disabled]="(pokemons | filtro : page : search).length === 0"
+  >
+    Siguientes
+  </button>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th [ngStyle]="{width:'100px'}">#</th>
-      <th [ngStyle]="{width:'1505px'}">Nombre</th>
-      <th>Sprite</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let pokemon of pokemons | filtro:page:search" [ngStyle]="{height:'75px'}">
-      <td>{{pokemon.id}}</td>
-      <td>{{pokemon.name}}</td>
-      <td>
-        <img
+  <table class="table">
+    <thead>
+      <tr>
+        <th [ngStyle]="{ width: '100px' }">#</th>
+        <th [ngStyle]="{ width: '1505px' }">Nombre</th>
+        <th>Sprite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let pokemon of pokemons | filtro : page : search"
+        [ngStyle]="{ height: '75px' }"
+      >
+        <td>{{ pokemon.id }}</td>
+        <td>{{ pokemon.name }}</td>
+        <td>
+          <img
             [src]="pokemon.pic"
             [alt]="pokemon.name"
-            [ngStyle]="{width:'75px'}"
-            >
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
+            [ngStyle]="{ width: '75px' }"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
