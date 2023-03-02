@@ -25,23 +25,23 @@
   <table class="table text-light">
     <thead>
       <tr>
-        <th [ngStyle]="{ width: '100px' }">#</th>
-        <th [ngStyle]="{ width: '1505px' }">Nombre</th>
+        <th [ngStyle]="{ width: '300px' }">#</th>
+        <th [ngStyle]="{ width: '300px' }">Nombre</th>
         <th>Sprite</th>
       </tr>
     </thead>
     <tbody>
       <tr
         *ngFor="let pokemon of pokemons | filtro : page : search"
-        [ngStyle]="{ height: '75px' }"
+        [ngStyle]="{ height: '100px' }"
       >
         <td>{{ pokemon.id }}</td>
         <td>{{ pokemon.name }}</td>
         <td>
           <img
+
             [src]="pokemon.pic"
             [alt]="pokemon.name"
-            [ngStyle]="{ width: '75px' }"
             (click)="selectPokemon(pokemon.name)"
           />
         </td>

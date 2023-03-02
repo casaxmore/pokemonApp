@@ -37,6 +37,7 @@ export class PokemonlistComponent implements OnInit{
     this.search = search;
   }
 
+
   selectPokemon(pokemon : string){
     console.log(pokemon);
   }
