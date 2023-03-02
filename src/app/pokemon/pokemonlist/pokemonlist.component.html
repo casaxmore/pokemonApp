@@ -12,7 +12,7 @@
     #txtSearch
     (keyup)="onSearchPokemon(txtSearch.value)"
   />
-  <button class="btn btn-success" (click)="prevPage()">Anteriores</button>
+  <button class="btn btn-success" (click)="prevPage()" [disabled]="page === 0">Anteriores</button>
   &nbsp;
   <button
     class="btn btn-success"
